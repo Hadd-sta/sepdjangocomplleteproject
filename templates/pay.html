@@ -1,0 +1,10 @@
+{% extends 'master.html' %}
+{% block content %}
+	<h1 class="text-info text-center">paying for{{ product.name }}</h1>
+    <h1 class="text-info text-center">ksh {{ product.price }}</h1>
+    <form class="row mx-auto col-10 col-md-8 col-lg-6 d-flex flex-column bg-info p-4" method="post" action="/pay/{{ product.id }}">
+    {% csrf_token %}
+        <input value="{{ product.name }}" class="form-control mb-4" required placeholder="phone number (2547..." name="phone-number" type="text"><br><br>
+        <input class="btn btn btn-outline-danger" value="pay" type="submit">
+    </form>
+{% endblock %}

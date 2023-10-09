@@ -1,0 +1,26 @@
+{% extends 'master.html' %}
+{% block content %}
+	<h1 class="text-info text-center">all products</h1>
+    <table class="table table-hover">
+    <tr>
+        <th>product name</th>
+        <th>product quantity</th>
+        <th>product price</th>
+        <th>product description</th>
+        <th>delete</th>
+        <th>update</th>
+        <th>pay</th>
+    </tr>
+    {% for product in products %}
+        <tr>
+            <td>{{ product.name }}</td>
+            <td>{{ product.qtty }}</td>
+            <td>{{ product.desc }}</td>
+            <td>{{ product.price }}</td>
+            <td><a class="btn btn-danger" href="/delete/{{ product.id }}">delete</a></td>
+            <td><a  class="btn btn-info" href="/update/{{ product.id }}">update</a></td>
+            <td><a class="btn btn-success" href="/pay/{{ product.id }}">pay</a></td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endblock %}
